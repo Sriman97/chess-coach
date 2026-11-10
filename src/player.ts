@@ -14,12 +14,22 @@ function getTable(piece: Heavy): Promise<MateTable> {
   let t = tables.get(piece);
   if (!t) {
     t = new Promise((resolve) => {
-      const w = new Worker(new URL('./tableWorker.ts', import.meta.url), { type: 'module' });
-      w.onmessage = (e) => {
-        resolve(new MateTable(piece, { w: e.data.w, b: e.data.b }));
-        w.terminate();
-      };
-      w.postMessage(piece);
+      // Build the table in a worker; if workers are blocked, build it here instead.
+      const local = () => setTimeout(() => resolve(new MateTable(piece)), 50);
+      try {
+        const w = new Worker(new URL('./tableWorker.ts', import.meta.url), { type: 'module' });
+        w.onmessage = (e) => {
+          resolve(new MateTable(piece, { w: e.data.w, b: e.data.b }));
+          w.terminate();
+        };
+        w.onerror = () => {
+          w.terminate();
+          local();
+        };
+        w.postMessage(piece);
+      } catch {
+        local();
+      }
     });
     tables.set(piece, t);
   }
