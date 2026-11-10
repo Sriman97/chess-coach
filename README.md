@@ -31,3 +31,5 @@ Lesson content lives in `src/lessons.ts`. Each lesson is an explanation plus a l
 - TypeScript and Vite
 
 Chessground is GPL-3.0, so this project is GPL-3.0 too.
+
+Chess pieces: [Totoy](https://github.com/lichess-org/lila/tree/master/public/piece/totoy) by Kosal Sen, licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), from lichess.org.

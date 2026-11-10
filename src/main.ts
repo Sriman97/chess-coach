@@ -1,5 +1,5 @@
 import '@lichess-org/chessground/assets/chessground.base.css';
-import '@lichess-org/chessground/assets/chessground.cburnett.css';
+import './pieces.css';
 import './style.css';
 import { UNITS, findLesson, type Lesson, type Unit } from './lessons';
 import { LessonPlayer } from './player';
@@ -129,7 +129,7 @@ function showLesson(lesson: Lesson, unit: Unit, index: number) {
           <h1>${lesson.title}</h1>
         </div>
         <div class="dots"></div>
-        <button type="button" class="info" aria-label="Read the lesson again">?</button>
+        <button type="button" class="about" aria-label="Read the lesson again">?</button>
       </header>
       <div class="lesson-body">
         <div class="side">
@@ -165,7 +165,7 @@ function showLesson(lesson: Lesson, unit: Unit, index: number) {
     sheet.querySelector('button')!.addEventListener('click', () => sheet.remove());
     document.body.appendChild(sheet);
   };
-  view.querySelector('.info')!.addEventListener('click', showIntro);
+  view.querySelector(".about")!.addEventListener('click', showIntro);
   if (!matchMedia('(min-width: 900px)').matches) showIntro();
   const q = <T extends HTMLElement>(s: string) => view.querySelector(s) as T;
   player = new LessonPlayer(lesson, {
