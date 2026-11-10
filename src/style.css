@@ -8,8 +8,8 @@
   --good: #24835a;
   --bad: #c2412f;
   --tip: #2f5f9e;
-  --sq-light: #dfe5ec;
-  --sq-dark: #7a90ab;
+  --sq-light: #e9edcc;
+  --sq-dark: #8ca86a;
   --star-glow: rgba(226, 169, 59, 0.35);
   --radius-lg: 18px;
   --radius-sm: 10px;
@@ -25,8 +25,8 @@
     --good: #4cc08a;
     --bad: #f07a68;
     --tip: #8db6f0;
-    --sq-light: #c9d2dd;
-    --sq-dark: #63799a;
+    --sq-light: #d9dfbd;
+    --sq-dark: #74935a;
     color-scheme: dark;
   }
 }
@@ -39,8 +39,8 @@
   --good: #4cc08a;
   --bad: #f07a68;
   --tip: #8db6f0;
-  --sq-light: #c9d2dd;
-  --sq-dark: #63799a;
+  --sq-light: #d9dfbd;
+  --sq-dark: #74935a;
   color-scheme: dark;
 }
 
@@ -331,7 +331,7 @@ h3 {
   flex-direction: column;
   gap: 10px;
 }
-.info {
+.about {
   flex: none;
   width: 34px;
   height: 34px;
@@ -454,7 +454,7 @@ h3 {
     display: block;
     font-size: 17px;
   }
-  .info {
+  .about {
     display: none;
   }
   .prompt {
@@ -470,16 +470,22 @@ cg-board {
   background-size: 25% 25%;
 }
 cg-board square.move-dest {
-  background: radial-gradient(rgba(27, 42, 65, 0.42) 19%, transparent 21%);
+  background: radial-gradient(rgba(38, 60, 24, 0.38) 19%, transparent 21%);
 }
 cg-board square.oc.move-dest {
-  background: radial-gradient(transparent 0%, transparent 78%, rgba(27, 42, 65, 0.4) 80%);
+  background: radial-gradient(transparent 0%, transparent 78%, rgba(38, 60, 24, 0.38) 80%);
 }
 cg-board square.last-move {
-  background-color: rgba(226, 169, 59, 0.38);
+  background-color: rgba(246, 214, 92, 0.55);
 }
 cg-board square.selected {
-  background-color: rgba(36, 131, 90, 0.45);
+  background-color: rgba(246, 214, 92, 0.8);
+}
+.cg-wrap piece {
+  filter: drop-shadow(0 1.5px 1px rgba(30, 40, 20, 0.25));
+}
+.cg-wrap piece.dragging {
+  filter: drop-shadow(0 8px 6px rgba(30, 40, 20, 0.35));
 }
 cg-board square.check {
   background: radial-gradient(ellipse at center, rgba(255, 40, 0, 0.9) 0%, rgba(231, 0, 0, 0.6) 30%, rgba(169, 0, 0, 0) 75%);
@@ -502,7 +508,7 @@ cg-board square.target {
 }
 cg-board square.move-dest.star {
   background:
-    radial-gradient(rgba(27, 42, 65, 0.42) 19%, transparent 21%),
+    radial-gradient(rgba(38, 60, 24, 0.38) 19%, transparent 21%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.6l2.9 6 6.5.8-4.8 4.5 1.2 6.5L12 17.3l-5.8 3.1 1.2-6.5L2.6 9.4l6.5-.8z' fill='%23e2a93b' stroke='%23a97412' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E")
       center / 62% no-repeat;
 }
